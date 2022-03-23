@@ -1,6 +1,7 @@
 
 import 'package:film_demo_app/models/movie_model.dart';
-import 'package:film_demo_app/providers/movie_provider.dart';
+import 'package:film_demo_app/providers/home_provider.dart';
+
 import 'package:film_demo_app/screens/widgets/movie_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +11,7 @@ class ListMovie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future<List<MovieModel>> futureListData= Provider.of<MovieProvider>(context,listen: false).movies;
+    Future<List<MovieModel>> futureListData= Provider.of<HomeProvider>(context,listen: false).movies;
 
     return FutureBuilder<List<MovieModel>>(
         future: futureListData,

@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 import 'package:film_demo_app/models/movie_model.dart';
-import 'package:film_demo_app/providers/actor_provider.dart';
+import 'package:film_demo_app/providers/home_provider.dart';
 import 'package:film_demo_app/screens/detail_movie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +14,8 @@ class MovieItem extends StatelessWidget {
 
     return InkWell(
       onTap: (){
-        Provider.of<ActorProvider>(context,listen: false).getDataActor(movie.id!);
-        Navigator.pushNamed(context, DetailScreen.routerName ,arguments: movie);
+        Provider.of<HomeProvider>(context,listen: false).getDataActor(movie.id!);
+        Navigator.of(context).pushNamed( DetailScreen.routerName ,arguments: movie);
       },
       child: Column(
         children: [
@@ -45,6 +45,7 @@ class MovieItem extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 5),
             child: Text(
               movie.title??" ",
+              overflow: TextOverflow.ellipsis,
               style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
           )

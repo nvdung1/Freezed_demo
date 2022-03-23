@@ -1,7 +1,7 @@
 
 import 'package:film_demo_app/models/actor_model.dart';
 import 'package:film_demo_app/models/movie_model.dart';
-import 'package:film_demo_app/providers/actor_provider.dart';
+import 'package:film_demo_app/providers/home_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +13,7 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final movie= ModalRoute.of(context)!.settings.arguments as MovieModel;
-    Future<List<ActorModel>> futureListData= Provider.of<ActorProvider>(context,listen: false).actors;
+    Future<List<ActorModel>> futureListData= Provider.of<HomeProvider>(context,listen: false).actors;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
